@@ -1,6 +1,7 @@
 package entities;
 import jakarta.persistence.*;
 import lombok.Data;
+import java.util.List;
 
 @Entity
 @Table(name = "client")
@@ -13,4 +14,7 @@ public class Client {
 
     @Column(name = "name", length = 200, nullable = false)
     private String name;
+
+    @OneToMany(mappedBy = "client")
+    private List<Ticket> tickets;
 }

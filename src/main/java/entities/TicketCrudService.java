@@ -40,7 +40,7 @@ public class TicketCrudService {
     public void deleteTicketById(long id) {
         Session session = HU.getInstance().getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-        String deleteQuery = "DELETE FROM Ticket WHERE id = :id";
+        String deleteQuery = "delete from Ticket where id = :id";
         Query query = session.createQuery(deleteQuery);
         query.setParameter("id", id);
         query.executeUpdate();

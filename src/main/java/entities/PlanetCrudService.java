@@ -27,7 +27,7 @@ public class PlanetCrudService {
     public void updatePlanetById(String id, String name) {
         Session session = HU.getInstance().getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-        String updateQuery = "UPDATE Planet SET name = :name WHERE id = :id";
+        String updateQuery = "update Planet set name = :name where id = :id";
         Query query = session.createQuery(updateQuery);
         query.setParameter("name", name);
         query.setParameter("id", id);
@@ -38,7 +38,7 @@ public class PlanetCrudService {
     public void deletePlanetById(String id) {
         Session session = HU.getInstance().getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-        String deleteQuery = "DELETE FROM Planet WHERE id = :id";
+        String deleteQuery = "delete from Planet where id = :id";
         Query query = session.createQuery(deleteQuery);
         query.setParameter("id", id);
         query.executeUpdate();
